@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="搜同官网 - 提供海量优质同人漫画、插画及同人志在线阅读与下载服务，涵盖动漫、游戏、影视等热门IP同人作品。">
+    <meta name="keywords" content="搜同官网, 同人漫画, 同人志, 二次元, 漫画阅读">
+    <title>搜同官网-海量同人漫画在线阅读与下载平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4d4f;
+            --secondary-color: #ff7875;
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .search-bar {
+            display: flex;
+            background: #f0f0f0;
+            border-radius: 20px;
+            padding: 4px 16px;
+            align-items: center;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 4px;
+            width: 200px;
+            color: var(--text-main);
+        }
+
+        .search-bar button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: var(--text-sub);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 24px;
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+
+        .category-list {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .category-list h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .category-list ul {
+            list-style: none;
+        }
+
+        .category-list li {
+            margin-bottom: 8px;
+        }
+
+        .category-list a {
+            display: block;
+            padding: 6px 0;
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .category-list a:hover {
+            color: var(--primary-color);
+            padding-left: 4px;
+        }
+
+        /* Content Area */
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Section Header */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .more-link {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        /* Grid System for Works */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .work-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .work-cover {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .work-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .work-info {
+            padding: 12px;
+        }
+
+        .work-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .work-meta {
+            font-size: 12px;
+            color: var(--text-sub);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .work-tag {
+            background: #fff0f0;
+            color: var(--primary-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+
+        /* Ranking List */
+        .ranking-list {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .ranking-item {
+            display: flex;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .ranking-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ddd;
+            width: 24px;
+            text-align: center;
+        }
+
+        .rank-num.top-1 { color: #ff4d4f; }
+        .rank-num.top-2 { color: #ff7875; }
+        .rank-num.top-3 { color: #ff9c6e; }
+
+        .rank-info {
+            flex: 1;
+        }
+
+        .rank-title {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .rank-desc {
+            font-size: 12px;
+            color: var(--text-sub);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .rank-cover {
+            width: 60px;
+            height: 80px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            background: #333;
+            color: #999;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        .copyright {
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+            }
+
+            .header-container {
+                padding: 0 12px;
+            }
+
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+
+            .search-bar {
+                display: none;
+            }
+
+            .works-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                <span>搜同官网</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">分类浏览</a></li>
+                    <li><a href="#">标签云</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索作品、标签或作者...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>探索无限同人的世界</h1>
+        <p>汇聚全网优质同人漫画、插画与同人志，满足你对二次元世界的所有幻想。每日更新，高清画质，流畅阅读。</p>
+        <a href="#" class="cta-button">开始阅读</a>
+    </section>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside>
+            <div class="category-list">
+                <h3>热门分类</h3>
+                <ul>
+                    <li><a href="#">🔥 恋爱喜剧</a></li>
+                    <li><a href="#">🥵 沉浸式体验</a></li>
+                    <li><a href="#">⚔️ 冒险奇幻</a></li>
+                    <li><a href="#">🏠 校园生活</a></li>
+                    <li><a href="#">💼 职场萌物</a></li>
+                    <li><a href="#">🔮 异世界穿越</a></li>
+                    <li><a href="#">🎮 游戏同人</a></li>
+                    <li><a href="#">🎬 动漫改编</a></li>
+                </ul>
+            </div>
+            
+            <div class="category-list" style="margin-top: 20px;">
+                <h3>热门标签</h3>
+                <ul>
+                    <li><a href="#">#纯爱</a></li>
+                    <li><a href="#">#百合</a></li>
+                    <li><a href="#">#耽美</a></li>
+                    <li><a href="#">#搞笑</a></li>
+                    <li><a href="#">#虐心</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Section 1: Latest Updates -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">最新更新</h2>
+                    <a href="#" class="more-link">查看更多 &gt;</a>
+                </div>
+                <div class="works-grid">
+                    <!-- Card 1 -->
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/otaku1/300/450" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">异世界转生之成为魔王</h3>
+                            <div class="work-meta">
+                                <span class="work-tag">冒险</span>
+                                <span>10-24</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 2 -->
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/otaku2/300/450" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">校园恋爱物语果然有问题</h3>
+                            <div class="work-meta">
+                                <span class="work-tag">校园</span>
+                                <span>10-24</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 3 -->
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/otaku3/300/450" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">深夜食堂的秘密菜单</h3>
+                            <div class="work-meta">
+                                <span class="work-tag">治愈</span>
+                                <span>10-23</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 4 -->
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/otaku4/300/450" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">电竞大神的手下败将</h3>
+                            <div class="work-meta">
+                                <span class="work-tag">电竞</span>
+                                <span>10-23</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 5 -->
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/otaku5/300/450" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">魔法少女的日常</h3>
+                            <div class="work-meta">
+                                <span class="work-tag">魔法</span>
+                                <span>10-22</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 6 -->
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/otaku6/300/450" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">侦探事务所的委托人</h3>
+                            <div class="work-meta">
+                                <span class="work-tag">悬疑</span>
+                                <span>10-22</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Section 2: Ranking -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">本周热门排行</h2>
+                    <a href="#" class="more-link">查看榜单 &gt;</a>
+                </div>
+                <div class="ranking-list">
+                    <div class="ranking-item">
+                        <span class="rank-num top-1">1</span>
+                        <div class="rank-info">
+                            <div class="rank-title">全职法师同人：元素之巅</div>
+                            <div class="rank-desc">当魔法学院成为战场，他如何在这个充满禁忌的世界中寻找真爱？</div>
+                        </div>
+                        <img src="https://picsum.photos/seed/rank1/100/140" class="rank-cover" alt="封面">
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num top-2">2</span>
+                        <div class="rank-info">
+                            <div class="rank-title">从零开始的异界生活：日常篇</div>
+                            <div class="rank-desc">没有魔王，没有勇者，只有柴米油盐和意想不到的甜蜜邂逅。</div>
+                        </div>
+                        <img src="https://picsum.photos/seed/rank2/100/140" class="rank-cover" alt="封面">
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num top-3">3</span>
+                        <div class="rank-info">
+                            <div class="rank-title">赛博朋克：夜之城的救赎</div>
+                            <div class="rank-desc">霓虹灯下的暗流涌动，两个灵魂在钢铁森林中相互取暖。</div>
+                        </div>
+                        <img src="https://picsum.photos/seed/rank3/100/140" class="rank-cover" alt="封面">
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num">4</span>
+                        <div class="rank-info">
+                            <div class="rank-title">恐怖片场：我是导演</div>
+                            <div class="rank-desc">在恐怖片拍摄现场，意外发现了剧组成员不为人知的一面。</div>
+                        </div>
+                        <img src="https://picsum.photos/seed/rank4/100/140" class="rank-cover" alt="封面">
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank-num">5</span>
+                        <div class="rank-info">
+                            <div class="rank-title">星际迷航：异星来客</div>
+                            <div class="rank-desc">飞船坠毁在未知星球，等待救援的却是意想不到的救援者。</div>
+                        </div>
+                        <img src="https://picsum.photos/seed/rank5/100/140" class="rank-cover" alt="封面">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Featured Recommendations -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">编辑精选</h2>
+                    <a href="#" class="more-link">更多推荐 &gt;</a>
+                </div>
+                <div class="works-grid">
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/feat1/300/450" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">古风：御医的日常</h3>
+                            <div class="work-meta">
+                                <span class="work-tag">古风</span>
+                                <span>连载中</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/feat2/300/450" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">末世求生指南</h3>
+                            <div class="work-meta">
+                                <span class="work-tag">末世</span>
+                                <span>完结</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/feat3/300/450" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">重生之我在豪门当保姆</h3>
+                            <div class="work-meta">
+                                <span class="work-tag">豪门</span>
+                                <span>连载中</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <div class="work-cover">
+                            <img src="https://picsum.photos/seed/feat4/300/450" alt="作品封面">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">科幻：银河系漫游指南</h3>
+                            <div class="work-meta">
+                                <span class="work-tag">科幻</span>
+                                <span>连载中</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">用户协议</a>
+            <a href="#">隐私政策</a>
+            <a href="#">版权声明</a>
+            <a href="#">联系站长</a>
+        </div>
+        <p class="copyright">Copyright © 2023 搜同官网. All Rights Reserved.</p>
+        <p style="font-size: 12px; color: #666; margin-top: 10px;">本站内容仅供个人学习交流使用，请勿用于商业用途。所有作品版权归原作者所有。</p>
+    </footer>
+
+</body>
+                              </html>
