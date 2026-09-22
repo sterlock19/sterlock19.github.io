@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保健小课堂-权威健康知识科普与生活指南</title>
+    <meta name="description" content="保健小课堂提供专业的健康科普、养生知识、疾病预防及家庭保健指南。涵盖中医养生、营养膳食、运动康复及心理健康，帮助您建立科学的生活方式。">
+    <meta name="keywords" content="保健小课堂,健康科普,养生知识,疾病预防,营养膳食,运动康复">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2E7D32; /* 健康绿 */
+            --primary-light: #E8F5E9;
+            --secondary-color: #0277BD; /* 科学蓝 */
+            --accent-color: #F9A825; /* 警示/活力黄 */
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #F5F7FA;
+            --bg-card: #FFFFFF;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-light);
+            background: var(--primary-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg-body);
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 5px;
+            font-size: 14px;
+            width: 150px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1B5E20 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .tag:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* 内容网格 */
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .more-link {
+            font-size: 14px;
+            color: var(--secondary-color);
+            font-weight: normal;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-img-wrapper {
+            height: 160px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .read-time {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* 特色栏目：养生膳食 */
+        .featured-section {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .featured-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--secondary-color);
+        }
+
+        .recipe-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .recipe-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: -2px;
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            background: white;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .faq-item h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .faq-item p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #263238;
+            color: #B0BEC5;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #37474F;
+            font-size: 14px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 992px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .featured-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .search-box {
+                width: 100%;
+                margin-top: 10px;
+            }
+            .search-box input {
+                width: 100%;
+            }
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="#" class="logo">
+            保健小课堂
+            <span>科普平台</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">中医养生</a></li>
+                <li><a href="#">营养膳食</a></li>
+                <li><a href="#">疾病预防</a></li>
+                <li><a href="#">运动康复</a></li>
+                <li><a href="#">心理健康</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜索健康知识...">
+            <button>🔍</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>科学养生，健康生活</h1>
+            <p>汇集权威医疗专家意见，为您提供从日常保健到疾病预防的全方位指导，助您建立科学的健康观念。</p>
+            <div class="hero-tags">
+                <span class="tag">春季养生</span>
+                <span class="tag">睡眠改善</span>
+                <span class="tag">控糖饮食</span>
+                <span class="tag">颈椎护理</span>
+                <span class="tag">亚健康调理</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- 核心栏目：今日推荐 -->
+        <div class="section-title">
+            <span>每日健康精选</span>
+            <a href="#" class="more-link">查看更多 &rarr;</a>
+        </div>
+
+        <div class="grid-container">
+            <!-- 文章卡片 1 -->
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <span class="category-badge">中医调理</span>
+                    <img src="https://picsum.photos/seed/health1/400/250" alt="中医养生图片">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="#">春季养肝指南：这几种食物最养肝，建议每天吃一点</a></h3>
+                    <p class="card-excerpt">中医认为“春气通于肝”，春季是养肝护肝的最佳时节。本文为您推荐三种天然的养肝食材，并介绍简单的食疗方。</p>
+                    <div class="card-meta">
+                        <span class="read-time">🕒 5分钟阅读</span>
+                        <span>📅 2023-10-24</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 文章卡片 2 -->
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <span class="category-badge">营养膳食</span>
+                    <img src="https://picsum.photos/seed/food2/400/250" alt="健康饮食图片">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="#">控糖人群必看：超市购物避坑指南，学会看配料表</a></h3>
+                    <p class="card-excerpt">对于糖尿病患者和减脂人群来说，学会看食品配料表至关重要。本文教你如何识别隐形糖，避开高升糖陷阱。</p>
+                    <div class="card-meta">
+                        <span class="read-time">🕒 8分钟阅读</span>
+                        <span>📅 2023-10-23</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 文章卡片 3 -->
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <span class="category-badge">运动康复</span>
+                    <img src="https://picsum.photos/seed/yoga3/400/250" alt="运动康复图片">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="#">久坐党福音：办公室颈椎操，缓解酸痛只需5分钟</a></h3>
+                    <p class="card-excerpt">每天面对电脑8小时，颈椎问题越来越年轻化。这套专为办公室人群设计的颈椎操，动作简单，随时随地可做。</p>
+                    <div class="card-meta">
+                        <span class="read-time">🕒 4分钟阅读</span>
+                        <span>📅 2023-10-22</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 文章卡片 4 -->
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <span class="category-badge">睡眠健康</span>
+                    <img src="https://picsum.photos/seed/sleep4/400/250" alt="睡眠健康图片">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="#">深度睡眠质量差？可能是卧室环境出了问题</a></h3>
+                    <p class="card-excerpt">高质量的睡眠离不开良好的环境。本文从光线、温度、噪音三个方面分析，教你打造完美的助眠卧室。</p>
+                    <div class="card-meta">
+                        <span class="read-time">🕒 6分钟阅读</span>
+                        <span>📅 2023-10-21</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- 特色栏目：养生膳食 -->
+        <div class="featured-section">
+            <div class="featured-card">
+                <h3 class="section-title" style="margin-top:0; border-left:none; padding-left:0;">秋季润燥食谱推荐</h3>
+                <p style="color:var(--text-light); margin-bottom:20px;">秋季气候干燥，容易引起咽喉不适、皮肤干痒。合理的饮食调理可以有效缓解这些症状。</p>
+                <ul class="recipe-list">
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>百合莲子汤</strong>
+                            <p style="font-size:13px; color:#888;">养阴润肺，清心安神。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>银耳雪梨汤</strong>
+                            <p style="font-size:13px; color:#888;">生津润燥，清热化痰。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>蜂蜜蒸雪梨</strong>
+                            <p style="font-size:13px; color:#888;">润肺止咳，缓解咽喉肿痛。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <div>
+                            <strong>山药排骨汤</strong>
+                            <p style="font-size:13px; color:#888;">健脾养胃，增强体质。</p>
+                        </div>
+                    </li>
+                </ul>
+                <a href="#" style="display:inline-block; margin-top:20px; color:var(--secondary-color); font-weight:600;">查看完整食谱 &rarr;</a>
+            </div>
+            
+            <div class="featured-card" style="background:var(--primary-light); border:1px solid var(--primary-color);">
+                <h3 class="section-title" style="margin-top:0; border-left:none; padding-left:0; color:var(--primary-color);">健康小贴士</h3>
+                <div style="margin-bottom:15px;">
+                    <h4 style="margin-bottom:5px;">💡 喝水有讲究</h4>
+                    <p style="font-size:14px; color:#444;">不要等到口渴了才喝水。建议分次少量饮用，每天保持1500-1700毫升的饮水量。</p>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <h4 style="margin-bottom:5px;">🏃‍♀️ 运动心率控制</h4>
+                    <p style="font-size:14px; color:#444;">有氧运动时，心率控制在最大心率的60%-80%之间效果最佳。</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom:5px;">🥗 饮食原则</h4>
+                    <p style="font-size:14px; color:#444;">“彩虹饮食法”：每天摄入至少5种不同颜色的蔬菜水果，营养更均衡。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 常见问题 -->
+        <section class="faq-section">
+            <div class="section-title">
+                <span>常见健康问答</span>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Q：每天睡够8小时就一定健康吗？</h3>
+                    <p>不一定。睡眠质量比时长更重要。深睡眠时间充足、醒来后精神饱满才是健康的标志。建议成年人保持7-9小时的高质量睡眠。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Q：长期吃素对身体有什么影响？</h3>
+                    <p>长期吃素可能导致蛋白质、维生素B12、铁和钙摄入不足。建议素食者通过豆制品、全谷物、深色蔬菜和营养补充剂来均衡营养。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Q：出现哪些症状需要立即就医？</h3>
+                    <p>出现胸痛、呼吸困难、剧烈头痛、意识模糊、持续高烧不退或便血等严重症状时，应立即拨打急救电话或前往医院就诊。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Q：保健品能代替药物吗？</h3>
+                    <p>不能。保健品主要用于膳食补充，不能治疗疾病。如果身体出现不适，请务必遵医嘱用药，切勿盲目依赖保健品。</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>保健小课堂</h2>
+                <p style="font-size:14px; opacity:0.8;">致力于传播科学、权威、实用的健康知识，让每个人都能拥有健康的生活方式。</p>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">团队介绍</a></li>
+                    <li><a href="#">专家团队</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>热门分类</h4>
+                <ul>
+                    <li><a href="#">中医养生</a></li>
+                    <li><a href="#">营养膳食</a></li>
+                    <li><a href="#">运动健身</a></li>
+                    <li><a href="#">心理健康</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">新浪微博</a></li>
+                    <li><a href="#">小红书</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 保健小课堂 版权所有 | 本站内容仅供参考，不构成医疗建议</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+                          </html>
